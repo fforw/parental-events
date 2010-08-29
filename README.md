@@ -51,4 +51,4 @@ src
                              |           |-- v_detail_person.xml
                              |           |-- v_list_event.xml
                              |           `-- v_list_person.xml
-                             `-- stages.xml							top very basic stage definitions
+                             `-- stages.xml							two very basic stage definitions
