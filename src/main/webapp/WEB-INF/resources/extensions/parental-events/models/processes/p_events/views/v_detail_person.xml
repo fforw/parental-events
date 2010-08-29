@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<view id="parental-events.p_events.v_detail_person"
+     title="Edit Person"
+    domain-type-ref="parental-events.d_person"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="http://www.opensaga.org/schema/model/view-1.0.xsd">
+    <part-set>
+        <part id="parental-events.p_events.v_detail_person.main_part">
+            <content>
+            	<toolbar>
+            		<button transition-ref="parental-events.p_events.v_detail_person.t_save" icon="ok" text="Save"/>
+            		<button transition-ref="parental-events.p_events.v_detail_person.t_cancel" icon="cancel" text="Cancel"/>
+                </toolbar>
+                <error-message-list />
+                <grid layout="gridFormLayout">
+                    <row>
+                        <column>
+                            <label target-ref="name" value="First Name, Last Name"/>
+                        </column>
+                        <column>
+                            <text-field id="name" property-ref="parental-events.d_person.first-name" style="-os-weight: 1;" />
+                            <text-field id="name2" property-ref="parental-events.d_person.last-name" style="-os-weight: 3;"/>
+                        </column>
+                    </row>
+                    <row>
+                        <column>
+                            <label target-ref="address" value="Address Line 1"/>
+                        </column>
+                        <column>
+                            <text-field id="address" property-ref="parental-events.d_person.address-line1" />
+                        </column>
+                    </row>
+                    <row>
+                        <column>
+                            <label target-ref="address2" value="Line 2"/>
+                        </column>
+                        <column>
+                            <text-field id="address2" property-ref="parental-events.d_person.address-line2" />
+                        </column>
+                    </row>
+                    <row>
+                        <column>
+                            <label target-ref="address3" value="Line 3"/>
+                        </column>
+                        <column>
+                            <text-field id="address3" property-ref="parental-events.d_person.address-line3" />
+                        </column>
+                    </row>
+                </grid>
+                <toolbar>
+                    <button transition-ref="parental-events.p_events.v_detail_person.t_save" icon="ok" text="Save"/>
+                    <button transition-ref="parental-events.p_events.v_detail_person.t_cancel" icon="cancel" text="Cancel"/>
+                </toolbar>
+            </content>
+        </part>
+    </part-set>
+</view>

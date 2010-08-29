@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<translation-definitions id="portal.domain.translations.resources" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="http://www.opensaga.org/schema/model/translation-definitions-1.0.xsd">
+
+    <translation-definition code="List of Events" language="en" translation="List of Events" />
+    <translation-definition code="List of Events" language="de" translation="Liste von Ereignissen" />
+    <translation-definition code="PortalTitle" language="en" translation="Paternal Events" />
+    <translation-definition code="PortalTitle" language="de" translation="Elterliche Ereignisse" />
+
+    <translation-definition code="New Event" language="en" translation="New Event" />
+    <translation-definition code="New Event" language="de" translation="Neues Event" />
+    <translation-definition code="Name" language="en" translation="Name" />
+    <translation-definition code="Name" language="de" translation="Name" />
+    <translation-definition code="Price" language="en" translation="Price" />
+    <translation-definition code="Price" language="de" translation="Preis" />
+    <translation-definition code="Date" language="en" translation="Date" />
+    <translation-definition code="Date" language="de" translation="Datum" />
+    <translation-definition code="Export to PDF" language="en" translation="Export to PDF" />
+    <translation-definition code="Export to PDF" language="de" translation="Exporiere als PDF" />
+    <translation-definition code="Detail Event" language="en" translation="Event detail" />
+    <translation-definition code="Detail Event" language="de" translation="Event-Detail" />
+    <translation-definition code="Time" language="en" translation="Time" />
+    <translation-definition code="Time" language="de" translation="Zeit" />
+    <translation-definition code="price field explanation" language="en" translation="Price as decimal number" />
+    <translation-definition code="price field explanation" language="de" translation="Preis als Dezimalzahl" />
+    <translation-definition code="Description" language="en" translation="Description" />
+    <translation-definition code="Description" language="de" translation="Beschreibung" />
+    <translation-definition code="List of Persons" language="en" translation="List of Persons" />
+    <translation-definition code="List of Persons" language="de" translation="Liste der Personen" />
+    <translation-definition code="new" language="en" translation="New Person Entry" />
+    <translation-definition code="new" language="de" translation="Neuer Personseintrag" />
+    <translation-definition code="Edit Person" language="en" translation="Edit Person" />
+    <translation-definition code="Edit Person" language="de" translation="Person editieren" />
+    <translation-definition code="First Name, Last Name" language="en" translation="First Name, Last Name" />
+    <translation-definition code="First Name, Last Name" language="de" translation="Vorname, Nachname" />
+    <translation-definition code="Address Line 1" language="en" translation="Address, Line 1" />
+    <translation-definition code="Address Line 1" language="de" translation="Adresse, erste Zeile" />
+    <translation-definition code="Address Line 2" language="en" translation="Line 2" />
+    <translation-definition code="Address Line 2" language="de" translation="Zeile 2" />
+    <translation-definition code="Address Line 3" language="en" translation="Line 3" />
+    <translation-definition code="Address Line 3" language="de" translation="Zeile 3" />
+
+</translation-definitions>

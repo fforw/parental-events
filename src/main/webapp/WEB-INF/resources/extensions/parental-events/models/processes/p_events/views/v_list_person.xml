@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<view id="parental-events.p_events.v_list_person"
+     title="List of Persons"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="http://www.opensaga.org/schema/model/view-1.0.xsd">
+
+    <part-set>
+        <part id="parental-events.p_events.v_list_person.main_part">
+       		<content>
+       			<datagrid
+       				heading="List of Persons" 
+       				domain-type-ref="parental-events.d_person"
+                    transition-ref="parental-events.p_events.v_list_person.t_detail" 
+       				filter="opened">
+       				<toolbar>
+       					<button transition-ref="parental-events.p_events.v_list_person.t_new" icon="new" text="new" tabindex="12"/>
+       				</toolbar>
+       				<datagrid-column-list>
+       					<property-column property-ref="parental-events.d_person.last-name" filter-mode="contains"/>
+       					<property-column property-ref="parental-events.d_person.first-name" filter-mode="lower_inc_upper_inc" />
+       				</datagrid-column-list>
+       				<sort-order-list>
+       					<sort-order property-ref="parental-events.d_person.last-name"/>
+       				</sort-order-list>
+                    <available-export-list>
+                        <available-export generator="jasper" format="pdf" icon="export_pdf" text="PDF" title="Export to PDF" />
+                    </available-export-list>
+       			</datagrid>
+       		</content>
+        </part>
+    </part-set>
+</view>

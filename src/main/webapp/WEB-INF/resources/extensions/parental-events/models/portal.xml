@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<portal 
+    home-process-start-state-ref="parental-events.p_events.ss_start"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="portal.portal"
+    xsi:noNamespaceSchemaLocation="http://www.opensaga.org/schema/model/portal-1.5.xsd">
+  
+    <domain-type-reference-set>
+        <domain-type-reference domain-type-ref="parental-events.d_event" />
+        <domain-type-reference domain-type-ref="parental-events.d_person" />
+    </domain-type-reference-set>
+    <process-reference-set>
+        <process-reference process-ref="parental-events.p_events" />
+    </process-reference-set>
+</portal>
+

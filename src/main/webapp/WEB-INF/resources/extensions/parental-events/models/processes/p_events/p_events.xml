@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<process id="parental-events.p_events"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="http://www.opensaga.org/schema/model/process-1.5.xsd">
+	<process-state-set>
+		<!-- 
+			============================================================================================ 
+			===   Starts the test. 															 		 ===
+			============================================================================================ 
+		-->
+		<start-state id="parental-events.p_events.ss_start">
+			<transition-list>
+				<transition id="parental-events.p_events.t_test" target-state-ref="parental-events.p_events.vs_list_event"/>
+			</transition-list>
+		</start-state>
+
+		<start-state id="parental-events.p_events.ss_start_persons">
+			<transition-list>
+				<transition id="qs-test.p_settings_test.ss_start_persons.t_test" target-state-ref="parental-events.p_events.vs_list_person"/>
+			</transition-list>
+		</start-state>
+
+
+		<view-state id="parental-events.p_events.vs_list_event" view-ref="parental-events.p_events.v_list_event">
+			<transition-list>
+				<transition id="parental-events.p_events.v_list_event.t_new" target-state-ref="parental-events.p_events.vs_detail_event">
+					<action-list>
+						<new/>
+					</action-list>
+				</transition>
+				<transition id="parental-events.p_events.v_list_event.t_detail" target-state-ref="parental-events.p_events.vs_detail_event"/>
+			</transition-list>
+		</view-state>
+		
+		<view-state id="parental-events.p_events.vs_detail_event" view-ref="parental-events.p_events.v_detail_event" >
+			<transition-list>
+				<transition id="parental-events.p_events.v_detail_event.t_save" target-state-ref="parental-events.p_events.bs_back2">
+					<action-list>
+						<store/>
+					</action-list>
+				</transition>
+				<transition id="parental-events.p_events.v_detail_event.t_cancel" target-state-ref="parental-events.p_events.bs_back2"/>
+			</transition-list>
+		</view-state>
+
+        <view-state id="parental-events.p_events.vs_list_person" view-ref="parental-events.p_events.v_list_person">
+            <transition-list>
+                <transition id="parental-events.p_events.v_list_person.t_new" target-state-ref="parental-events.p_events.vs_detail_person">
+                    <action-list>
+                        <new/>
+                    </action-list>
+                </transition>
+                <transition id="parental-events.p_events.v_list_person.t_detail" target-state-ref="parental-events.p_events.vs_detail_person"/>
+            </transition-list>
+        </view-state>
+        
+        <view-state id="parental-events.p_events.vs_detail_person" view-ref="parental-events.p_events.v_detail_person" >
+            <transition-list>
+                <transition id="parental-events.p_events.v_detail_person.t_save" target-state-ref="parental-events.p_events.bs_back2">
+                    <action-list>
+                        <store/>
+                    </action-list>
+                </transition>
+                <transition id="parental-events.p_events.v_detail_person.t_cancel" target-state-ref="parental-events.p_events.bs_back2"/>
+            </transition-list>
+        </view-state>
+
+		<back-state id="parental-events.p_events.bs_back" back-to-view-state-in-domain-context-path-ref="parental-events.p_events.vs_list_event"/>
+        <back-state id="parental-events.p_events.bs_back2" back-to-first-view-without-domain-type-ref="true"/>
+		
+	</process-state-set>
+</process>

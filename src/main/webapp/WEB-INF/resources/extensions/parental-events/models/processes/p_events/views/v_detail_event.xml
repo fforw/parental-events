@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<view id="parental-events.p_events.v_detail_event"
+     title="Detail Event"
+    domain-type-ref="parental-events.d_event"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="http://www.opensaga.org/schema/model/view-1.0.xsd">
+    <part-set>
+        <part id="parental-events.p_events.v_detail_event.main_part">
+            <content>
+            	<toolbar>
+            		<button transition-ref="parental-events.p_events.v_detail_event.t_save" icon="ok" text="Save"/>
+            		<button transition-ref="parental-events.p_events.v_detail_event.t_cancel" icon="cancel" text="Cancel"/>
+                </toolbar>
+                <error-message-list />
+                <grid layout="gridFormLayout">
+                    <row>
+                        <column>
+                            <label target-ref="name" value="Name"/>
+                        </column>
+                        <column>
+                            <text-field id="name" property-ref="parental-events.d_event.name" />
+                        </column>
+                    </row>
+                    <row>
+                        <column>
+                            <label target-ref="date" value="Date"/>
+                        </column>
+                        <column>
+                            <text-field id="date" property-ref="parental-events.d_event.date" />
+                        </column>
+                    </row>
+                    <row>
+                        <column>
+                            <label target-ref="time" value="Time"/>
+                        </column>
+                        <column>
+                            <text-field id="time" property-ref="parental-events.d_event.time" />
+                        </column>
+                    </row>
+                    <row>
+                        <column>
+                            <label target-ref="price" value="Price"/>
+                        </column>
+                        <column>
+                            <text-field id="price" property-ref="parental-events.d_event.price" title="price field explanation" />
+                        </column>
+                    </row>
+                    <row>
+                        <column>
+                            <label target-ref="desc" value="Description"/>
+                        </column>
+                        <column>
+                            <textarea id="desc" property-ref="parental-events.d_event.description" />
+                        </column>
+                    </row>
+                </grid>
+                <toolbar>
+                    <button transition-ref="parental-events.p_events.v_detail_event.t_save" icon="ok" text="Save"/>
+                    <button transition-ref="parental-events.p_events.v_detail_event.t_cancel" icon="cancel" text="Cancel"/>
+                </toolbar>
+            </content>
+        </part>
+    </part-set>
+</view>

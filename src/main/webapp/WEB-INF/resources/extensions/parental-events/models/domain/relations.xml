@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<relation-set id="portal.domain.relations"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="http://www.opensaga.org/schema/model/relations-1.0.xsd">
+
+	<relation id="parental-events.r_person_to_event"
+              inverse-relation-id="parental-events.r_event_to_person"
+              name="The person is booked for the event"
+              start-type-ref="parental-events.d_person"
+              end-type-ref="parental-events.d_event"
+              start-cardinality="0..*" 
+              end-cardinality="0..*"/>
+              
+</relation-set>

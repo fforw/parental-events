@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app id="opensaga" version="2.4"
+    xmlns="http://java.sun.com/xml/ns/j2ee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+        http://java.sun.com/xml/ns/j2ee
+        http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
+        
+    <display-name>OpenSAGA</display-name>
+      
+    <session-config>
+      <session-timeout>60</session-timeout> 
+    </session-config>
+ 
+    <context-param>
+        <param-name>facelets.LIBRARIES</param-name>
+        <param-value>/WEB-INF/facelets-taglibs/opensaga.taglib.xml
+        </param-value>
+    </context-param>
+    
+    <!-- Use JSF view templates saved as *.xhtml, for use with Facelets -->
+  <context-param>
+    <param-name>javax.faces.DEFAULT_SUFFIX</param-name>
+    <param-value>.xml</param-value>
+  </context-param>
+
+  <!-- Enables special Facelets debug output during development -->
+  <context-param>
+    <param-name>facelets.DEVELOPMENT</param-name>
+    <param-value>true</param-value>
+  </context-param>
+
+  <!-- Causes Facelets to refresh templates during development -->
+  <context-param>
+    <param-name>facelets.REFRESH_PERIOD</param-name>
+    <param-value>1</param-value>
+  </context-param>
+
+  <!-- Disable client side javascript -->
+  <context-param>
+    <param-name>org.apache.myfaces.ALLOW_JAVASCRIPT</param-name>
+    <param-value>true</param-value>
+  </context-param>
+
+    <filter>
+        <filter-name>OpenSAGARequestContextThreadCleaningFilter</filter-name>
+        <filter-class>org.opensaga.runtime.controller.servlet.OpenSAGARequestContextThreadCleaningFilter</filter-class>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>OpenSAGARequestContextThreadCleaningFilter</filter-name>
+        <url-pattern>/app/process/*</url-pattern>
+    </filter-mapping>
+
+    <filter>
+        <filter-name>MultipartRequestFilter</filter-name>
+        <filter-class>org.opensaga.runtime.controller.servlet.MultipartRequestFilter</filter-class>
+        <init-param>
+            <param-name>uploadMaxFileSize</param-name>
+            <param-value>100m</param-value>      
+        </init-param>
+    </filter>
+    
+    <!-- extension mapping for adding <script/>, <link/>, and other resource tags to JSF-pages  -->
+    <filter-mapping>
+        <filter-name>MultipartRequestFilter</filter-name>
+        <servlet-name>Spring MVC Dispatcher Servlet</servlet-name>
+    </filter-mapping>
+
+    <!-- OpenSessionInViewFilter for Hibernate -->
+    <filter>
+        <filter-name>OpenSessionInViewFilter</filter-name>
+        <filter-class>org.opensaga.runtime.persistence.hibernate.HibernateOpenGeneratedSessionInViewFilter</filter-class>
+        <init-param>
+            <param-name>singleSession</param-name>
+            <param-value>true</param-value>
+        </init-param>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>OpenSessionInViewFilter</filter-name>
+        <url-pattern>/app/process/*</url-pattern>
+    </filter-mapping>
+
+  <!-- Enables Spring Security -->
+  <filter>
+    <filter-name>springSecurityFilterChain</filter-name>
+    <filter-class>
+      org.springframework.web.filter.DelegatingFilterProxy
+    </filter-class>
+  </filter>
+
+    <filter-mapping>
+        <filter-name>springSecurityFilterChain</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+ 
+ 
+  <!-- Serves static resource content from .jar files such as spring-faces.jar -->
+  <!-- ??? -->
+  <servlet>
+    <servlet-name>Resources Servlet</servlet-name>
+    <servlet-class>
+      org.springframework.js.resource.ResourceServlet
+    </servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+
+  <!-- Map all /resources requests to the Resource Servlet for handling -->
+  <!-- ??? -->
+  <servlet-mapping>
+    <servlet-name>Resources Servlet</servlet-name>
+    <url-pattern>/resources/*</url-pattern>
+  </servlet-mapping>
+
+  <!-- The front controller of this Spring Web application, responsible for handling all application requests -->
+  <servlet>
+    <servlet-name>Spring MVC Dispatcher Servlet</servlet-name>
+    <servlet-class>
+      org.springframework.web.servlet.DispatcherServlet
+    </servlet-class>
+    <init-param>
+      <param-name>contextConfigLocation</param-name>
+      <param-value></param-value>
+    </init-param>
+    <load-on-startup>2</load-on-startup>
+  </servlet>
+    
+  <!-- Map all "/app/*" requests to the Dispatcher Servlet -->
+  <servlet-mapping>
+    <servlet-name>Spring MVC Dispatcher Servlet</servlet-name>
+    <url-pattern>/app/*</url-pattern>
+  </servlet-mapping>
+
+    <!-- Map all "*.html" requests to the Dispatcher Servlet -->
+  <!-- ??? -->
+    <servlet-mapping>
+        <servlet-name>Spring MVC Dispatcher Servlet</servlet-name>
+        <url-pattern>*.html</url-pattern>
+    </servlet-mapping>
+
+  <!-- Just here so the JSF implementation can initialize, *not* used at runtime -->
+  <!-- ??? -->
+  <servlet>
+    <servlet-name>Faces Servlet</servlet-name>
+    <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <!-- Just here so the JSF implementation can initialize -->
+  <!-- ??? -->
+  <servlet-mapping>
+    <servlet-name>Faces Servlet</servlet-name>
+    <url-pattern>*.faces</url-pattern>
+  </servlet-mapping>
+
+  <!-- Servlet for Web Services -->
+  <servlet>
+    <servlet-name>opensaga-webservices</servlet-name>
+    <servlet-class>org.springframework.ws.transport.http.MessageDispatcherServlet</servlet-class>
+    <init-param>
+      <param-name>transformWsdlLocations</param-name>
+      <param-value>true</param-value>
+    </init-param>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>opensaga-webservices</servlet-name>
+    <url-pattern>/ws/*</url-pattern>
+  </servlet-mapping>
+
+  <welcome-file-list>
+    <welcome-file>index.jsp</welcome-file>
+  </welcome-file-list>
+
+    <listener>
+        <listener-class>
+            org.opensaga.startup.BootStrapListener
+        </listener-class>
+    </listener>
+    
+    <context-param>
+        <param-name>log4jConfigLocation</param-name>
+        <param-value>WEB-INF/cfg/log4j/log4j.properties</param-value>
+    </context-param>
+
+    <context-param>
+        <param-name>log4jRefreshInterval</param-name>
+        <param-value>60000</param-value>
+    </context-param>
+</web-app>

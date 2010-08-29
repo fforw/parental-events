@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<navigation id="base.n_applications"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="http://www.opensaga.org/schema/model/navigation-1.5.xsd">
+
+    <item-list>
+    	<item id="app.events" label="List of Events" process-start-state-ref="parental-events.p_events.ss_start"/>
+    	<item id="app.person" label="List of Persons" process-start-state-ref="parental-events.p_events.ss_start_persons"/>
+     </item-list>
+
+</navigation>
