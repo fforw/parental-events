@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<view id="parental-events.p_events.v_list_event"
+     title="List of Events"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="http://www.opensaga.org/schema/model/view-1.0.xsd">
+
+    <part-set>
+        <part id="parental-events.p_events.v_list_event.main_part">
+       		<content>
+       			<datagrid
+       				heading="List of Events" 
+       				domain-type-ref="parental-events.d_event" 
+                    transition-ref="parental-events.p_events.v_list_event.t_detail"
+       				filter="opened">
+       				<toolbar>
+       					<button transition-ref="parental-events.p_events.v_list_event.t_new" icon="new" text="New Event"/>
+       				</toolbar>
+       				<datagrid-column-list>
+       					<property-column property-ref="parental-events.d_event.name" filter-mode="contains"/>
+       					<property-column property-ref="parental-events.d_event.price" filter-mode="lower_inc_upper_inc" />
+       					<property-column property-ref="parental-events.d_event.date" filter-mode="lower_inc_upper_inc" />
+       				</datagrid-column-list>
+       				<sort-order-list>
+       					<sort-order property-ref="parental-events.d_event.date" desc="true"/>
+       				</sort-order-list>
+                    <available-export-list>
+                        <available-export generator="jasper" format="pdf" icon="export_pdf" text="PDF" title="Export to PDF" />
+                    </available-export-list>
+       			</datagrid>
+       		</content>
+        </part>
+    </part-set>
+</view>

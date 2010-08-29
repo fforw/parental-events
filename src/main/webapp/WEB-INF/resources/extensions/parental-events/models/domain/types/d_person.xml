@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<domain-type id="parental-events.d_person"
+	name="Person"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="http://www.opensaga.org/schema/model/domain-type-1.0.xsd">
+
+	<property-set>
+		<domain-type-property-set>
+			<domain-type-property id="parental-events.d_person.id" name="id" type="PlainText" insert-property-value-provider="guidPropertyValueProvider"/>
+			<domain-type-property id="parental-events.d_person.first-name" name="firstName" type="PlainText" />
+			<domain-type-property id="parental-events.d_person.last-name" name="lastName" type="PlainText" />
+			<domain-type-property id="parental-events.d_person.address-line1" name="addr1" type="PlainText" />
+			<domain-type-property id="parental-events.d_person.address-line2" name="addr2" type="PlainText" />
+			<domain-type-property id="parental-events.d_person.address-line3" name="addr3" type="PlainText" />
+		</domain-type-property-set>
+	</property-set>
+
+	<primary-key>	
+		<key property-ref="parental-events.d_person.id"/>
+	</primary-key>
+
+</domain-type>

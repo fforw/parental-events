@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout id="portal.layout"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="http://www.opensaga.org/schema/model/layout-1.0.xsd">
+  <skin>
+
+<!-- 
+    <setting variable="portal.css-includes" value="widget/calendarWidget.css"/>
+    <setting variable="portal.js-includes" value="base/Interactivei18n.js"/>
+
+    <setting variable="qs-test.p_settings_tests.constant1" value="value from portal"/>
+    <setting variable="qs-test.p_settings_tests.constant2" value="value from portal"/>
+    <setting variable="qs-test.p_settings_tests.constant3" value="value from portal"/>
+ -->
+
+  </skin>
+</layout>

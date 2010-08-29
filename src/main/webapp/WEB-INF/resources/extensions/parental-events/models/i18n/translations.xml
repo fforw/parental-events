@@ -1,0 +1,5 @@
+<translations id="portal.domain.translations"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="http://www.opensaga.org/schema/model/translations-1.0.xsd">
+  <translation-definitions translation-definitions-ref="portal.domain.translations.resources" />
+</translations>
