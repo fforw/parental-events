@@ -16,6 +16,7 @@
        					<button transition-ref="parental-events.p_events.v_list_event.t_new" icon="new" text="New Event"/>
        				</toolbar>
        				<datagrid-column-list>
+       					<button-column transition-ref="parental-events.p_events.v_list_event.t_delete" icon="delete" text="Delete Event"/>
        					<property-column property-ref="parental-events.d_event.name" filter-mode="contains"/>
        					<property-column property-ref="parental-events.d_event.price" filter-mode="lower_inc_upper_inc" />
        					<property-column property-ref="parental-events.d_event.date" filter-mode="lower_inc_upper_inc" />
